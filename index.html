@@ -116,13 +116,13 @@
 
     /* Hero Section */
     .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 130px 10% 0 10%; 
-  gap: 3rem;
-}
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 130px 10% 0 10%; 
+      gap: 3rem;
+    }
 
     .hero-content {
       max-width: 600px;
@@ -452,6 +452,57 @@
       transform: translateY(-5px);
     }
 
+    /* Certificate Modal Popup */
+    .cert-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .cert-modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cert-modal-img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--card-border);
+      object-fit: contain;
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -45px;
+      right: -10px;
+      color: var(--text-main);
+      font-size: 2.2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .close-modal:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
     @media (max-width: 900px) {
       .hero {
         flex-direction: column-reverse;
@@ -607,7 +658,7 @@
             <span class="tech-tag">Data Cleaning</span>
           </div>
         </div>
-        <a href="codealpha_intern.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('codealpha_intern.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
       <!-- Internship 2: Tata (Forage) -->
@@ -630,7 +681,7 @@
             <span class="tech-tag">Dashboard Design</span>
           </div>
         </div>
-        <a href="tata_intern.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('tata_intern.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
     </div>
@@ -655,7 +706,7 @@
           </div>
           <p class="cert-desc">Validated expertise in building interactive reports, transforming dataset schemas, and visualizing core business intelligence metrics using Power BI.</p>
         </div>
-        <a href="power_bi.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('power_bi.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
       <!-- Cert 2: Great Learning -->
@@ -669,7 +720,7 @@
           </div>
           <p class="cert-desc">Covered descriptive statistics, probability distributions, hypothesis testing, and statistical inferences for data science workflows.</p>
         </div>
-        <a href="stats.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('stats.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
       <!-- Cert 3: Certiport / Pearson -->
@@ -683,7 +734,7 @@
           </div>
           <p class="cert-desc">Official IT Specialist certification validating core Python syntax, data structures, algorithm design, and analytical programming capability.</p>
         </div>
-        <a href="python.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('python.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
       <!-- Cert 4: NoviTech -->
@@ -697,7 +748,7 @@
           </div>
           <p class="cert-desc">Intensive 30-day hands-on training on Data Analytics tools, Exploratory Data Analysis (EDA), SQL queries, and project deployment.</p>
         </div>
-        <a href="da_masterclass.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('da_masterclass.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
       <!-- Cert 5: Brand Monk / NSDC -->
@@ -711,7 +762,7 @@
           </div>
           <p class="cert-desc">Participated in industry-led webinar covering modern data analytics trends, career pathways, and tool ecosystem.</p>
         </div>
-        <a href="webinar.png" target="_blank" class="btn btn-secondary">View Certificate</a>
+        <button onclick="openModal('webinar.png')" class="btn btn-secondary">View Certificate</button>
       </div>
 
     </div>
@@ -809,6 +860,14 @@
     </div>
   </section>
 
+  <!-- Certificate Image Modal Structure -->
+  <div id="certModal" class="cert-modal" onclick="closeModal(event)">
+    <div class="cert-modal-content">
+      <button class="close-modal" onclick="forceCloseModal()">&times;</button>
+      <img id="modalImg" class="cert-modal-img" src="" alt="Certificate Preview">
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -902,6 +961,24 @@
       requestAnimationFrame(animate);
     }
     animate();
+
+    // Modal Certificate Viewer Logic
+    function openModal(imgSrc) {
+      const modal = document.getElementById("certModal");
+      const modalImg = document.getElementById("modalImg");
+      modalImg.src = imgSrc;
+      modal.style.display = "flex";
+    }
+
+    function closeModal(event) {
+      if (event.target.id === "certModal") {
+        document.getElementById("certModal").style.display = "none";
+      }
+    }
+
+    function forceCloseModal() {
+      document.getElementById("certModal").style.display = "none";
+    }
   </script>
 </body>
 </html>
