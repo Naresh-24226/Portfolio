@@ -263,36 +263,51 @@
     }
 
     /* Skills */
-    .skills-container {
-      max-width: 850px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
+.skills-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+}
 
-    .skill-box {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 1.4rem 1.8rem;
-      border-radius: 16px;
-      backdrop-filter: blur(10px);
-    }
+.skill-tile {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 1.8rem 1rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-    .skill-info {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
+.skill-tile:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 30px var(--accent-glow);
+}
 
-    .skill-bar {
-      height: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      overflow: hidden;
-      position: relative;
-    }
+.skill-tile > i {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.skill-tile h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.skill-level {
+  margin-top: 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  border: 1px solid;
+}
 
     .skill-progress {
       height: 100%;
@@ -545,7 +560,7 @@
       
       <!-- Detailed Impactful About Me Text -->
       <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
-        I am a Aspiring <strong>Data Analyst</strong> currently pursuing my B.Sc. in <strong>Computer science(Security System Specialization)</strong> I am passionate about transforming raw data into meaningful insights and business solutions. My expertise includes data cleaning, exploratory data analysis, and creating interactive visualization dashboards using tools like SQL, Python, Excel, and Power BI. I am constantly building projects to refine my skills and am looking for entry-level opportunities to help businesses make data-driven decisions.
+        I am an aspiring <strong>Data Analyst</strong> currently pursuing my B.Sc. in <strong>Computer Science (Security System Specialization)</strong>. I am passionate about transforming raw data into meaningful insights and business solutions. My expertise includes data cleaning, exploratory data analysis, and creating interactive visualization dashboards using tools like SQL, Python, Excel, and Power BI. I am constantly building projects to refine my skills and am looking for entry-level opportunities to help businesses make data-driven decisions.
       </p>
 
       <!-- Key Focus Highlight Cards -->
@@ -559,6 +574,11 @@
           <p style="font-size: 0.85rem; color: var(--text-muted);">Power BI, SQL, Python, Excel, Business Intelligence</p>
         </div>
       </div>
+
+      <div style="background: var(--card-bg); padding: 0.8rem 1rem; border-radius: 12px; border: 1px solid var(--card-border);">
+  <h4 style="color: var(--accent-color); font-size: 0.9rem;"><i class="fa-solid fa-graduation-cap"></i> Education</h4>
+  <p style="font-size: 0.85rem; color: var(--text-muted);">B.Sc. Computer Science (Security System Specialization) · Expected Graduation: 2027 · CGPA: 7.25</p>
+</div>
 
       <div class="btn-group">
         <a href="Naresh_Resume.pdf" target="_blank" class="btn btn-primary"><i class="fa-solid fa-eye"></i> View Resume</a>
@@ -581,53 +601,38 @@
 
   <!-- Technical Skills Section -->
   <section id="skills">
-    <div class="section-header" data-aos="fade-up">
-      <h2>Technical Skill Metrics</h2>
-      <p style="color: var(--text-muted);">Analytical domain expertise and tool mastery</p>
+  <div class="section-header" data-aos="fade-up">
+    <h2>Technical Skills</h2>
+    <p style="color: var(--text-muted);">Tools and languages I use for data analysis</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-tile" data-aos="fade-up">
+      <i class="fa-solid fa-chart-column" style="color:#f2c811;"></i>
+      <h4>Power BI</h4>
     </div>
 
-    <div class="skills-container">
-      <div class="skill-box" data-aos="fade-up">
-        <div class="skill-info">
-          <span><i class="fa-solid fa-chart-column" style="color:#f2c811;"></i> Power BI (DAX & Visualizations)</span>
-          <span class="skill-percent">95%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-progress" data-progress="95%"></div></div>
-      </div>
-
-      <div class="skill-box" data-aos="fade-up" data-aos-delay="100">
-        <div class="skill-info">
-          <span><i class="fa-solid fa-file-excel" style="color:#217346;"></i> Advanced Excel</span>
-          <span class="skill-percent">70%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-progress" data-progress="70%"></div></div>
-      </div>
-
-      <div class="skill-box" data-aos="fade-up" data-aos-delay="200">
-        <div class="skill-info">
-          <span><i class="fa-solid fa-database" style="color:#336791;"></i> SQL Data Querying</span>
-          <span class="skill-percent">80%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-progress" data-progress="80%"></div></div>
-      </div>
-
-      <div class="skill-box" data-aos="fade-up" data-aos-delay="300">
-        <div class="skill-info">
-          <span><i class="fab fa-python" style="color:#3776ab;"></i> Python (Pandas & NumPy)</span>
-          <span class="skill-percent">85%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-progress" data-progress="85%"></div></div>
-      </div>
-
-      <div class="skill-box" data-aos="fade-up" data-aos-delay="400">
-        <div class="skill-info">
-          <span><i class="fa-solid fa-calculator" style="color:#a855f7;"></i> Statistics</span>
-          <span class="skill-percent">60%</span>
-        </div>
-        <div class="skill-bar"><div class="skill-progress" data-progress="60%"></div></div>
-      </div>
+    <div class="skill-tile" data-aos="fade-up" data-aos-delay="100">
+      <i class="fab fa-python" style="color:#3776ab;"></i>
+      <h4>Python</h4>
     </div>
-  </section>
+
+    <div class="skill-tile" data-aos="fade-up" data-aos-delay="200">
+      <i class="fa-solid fa-database" style="color:#4aa3df;"></i>
+      <h4>SQL</h4>
+    </div>
+
+    <div class="skill-tile" data-aos="fade-up" data-aos-delay="300">
+      <i class="fa-solid fa-file-excel" style="color:#217346;"></i>
+      <h4>Excel</h4>
+    </div>
+
+    <div class="skill-tile" data-aos="fade-up" data-aos-delay="400">
+      <i class="fa-solid fa-calculator" style="color:#a855f7;"></i>
+      <h4>Statistics</h4>
+    </div>
+  </div>
+</section>
   
   <!-- Internship Experience Section -->
   <section id="experience">
